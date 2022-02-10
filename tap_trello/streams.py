@@ -1,20 +1,13 @@
 """Stream type classes for tap-trello."""
 
 from pathlib import Path
-from pickle import NONE
-from typing import Any, Dict, Optional, Union, List, Iterable
+from typing import Optional
 
-from singer_sdk import typing as th  # JSON Schema typing helpers
+from singer_sdk import typing as th
 
 from tap_trello.client import TrelloStream
 
-# TODO: Delete this is if not using json files for schema definition
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-# TODO: - Override `UsersStream` and `GroupsStream` with your own stream definition.
-#       - Copy-paste as many times as needed to create multiple stream types.
-
-
-# MEMBER_ID = None
 
 
 class MemberStream(TrelloStream):

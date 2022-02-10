@@ -175,18 +175,6 @@
                 "integer"
             ]
         },
-        "idAttachmentCover": {
-            "type": [
-                "null",
-                "string"
-            ]
-        },
-        "manualCoverAttachment": {
-            "type": [
-                "null",
-                "boolean"
-            ]
-        },
         "name": {
             "type": [
                 "null",
@@ -357,44 +345,6 @@
                 "null",
                 "string"
             ]
-        },
-        "cover": {
-            "type": [
-                "null",
-                "object"
-            ],
-            "properties": {
-                "idAttachment": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "color": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "idUploadedBackground": {
-                    "type": [
-                        "null",
-                        "boolean"
-                    ]
-                },
-                "size": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "brightness": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                }
-            }
         },
         "idChecklists": {
             "type": [

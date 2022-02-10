@@ -145,20 +145,6 @@
                                 "null",
                                 "string"
                             ]
-                        },
-                        "prefs": {
-                            "type": [
-                                "null",
-                                "object"
-                            ],
-                            "properties": {
-                                "background": {
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                }
-                            }
                         }
                     }
                 },
@@ -197,20 +183,6 @@
                                 "null",
                                 "string"
                             ]
-                        },
-                        "prefs": {
-                            "type": [
-                                "null",
-                                "object"
-                            ],
-                            "properties": {
-                                "background": {
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                }
-                            }
                         },
                         "idMembers": {
                             "type": [
@@ -418,31 +390,7 @@
                         "boolean"
                     ]
                 },
-                "avatarHash": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "avatarUrl": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "fullName": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "idMemberReferrer": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "initials": {
                     "type": [
                         "null",
                         "string"
@@ -480,31 +428,7 @@
                         "boolean"
                     ]
                 },
-                "avatarHash": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "avatarUrl": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "fullName": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "idMemberReferrer": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "initials": {
                     "type": [
                         "null",
                         "string"
@@ -515,74 +439,6 @@
                         "null",
                         "boolean"
                     ]
-                }
-            }
-        },
-        "limits": {
-            "type": [
-                "null",
-                "object"
-            ],
-            "properties": {
-                "reactions": {
-                    "type": [
-                        "null",
-                        "object"
-                    ],
-                    "properties": {
-                        "perAction": {
-                            "type": [
-                                "null",
-                                "object"
-                            ],
-                            "properties": {
-                                "status": {
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                },
-                                "disableAt": {
-                                    "type": [
-                                        "null",
-                                        "integer"
-                                    ]
-                                },
-                                "warnAt": {
-                                    "type": [
-                                        "null",
-                                        "integer"
-                                    ]
-                                }
-                            }
-                        },
-                        "uniquePerAction": {
-                            "type": [
-                                "null",
-                                "object"
-                            ],
-                            "properties": {
-                                "status": {
-                                    "type": [
-                                        "null",
-                                        "string"
-                                    ]
-                                },
-                                "disableAt": {
-                                    "type": [
-                                        "null",
-                                        "integer"
-                                    ]
-                                },
-                                "warnAt": {
-                                    "type": [
-                                        "null",
-                                        "integer"
-                                    ]
-                                }
-                            }
-                        }
-                    }
                 }
             }
         }

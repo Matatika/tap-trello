@@ -23,3 +23,6 @@ plugins:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres

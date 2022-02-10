@@ -29,7 +29,7 @@ class TestTapTrelloWithBaseCredentials(unittest.TestCase):
         catalog = TapTrello(self.mock_config).discover_streams()
 
         # expect valid catalog to be discovered
-        self.assertEqual(len(catalog), 2, "Total streams from default catalog")
+        self.assertEqual(len(catalog), 7, "Total streams from default catalog")
 
     @responses.activate
     def test_trello_sync_member(self):
