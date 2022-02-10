@@ -1,0 +1,25 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: cfeab111-1a62-45e6-a2c0-bbd271d134c5
+plugins:
+  extractors:
+  - name: tap-trello
+    namespace: tap_trello
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    settings:
+    - name: developer_api_key
+      kind: password
+    - name: oauth_secret
+      kind: password
+    - name: access_token
+      kind: password
+    - name: start_date
+      value: '2010-01-01T00:00:00Z'
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl

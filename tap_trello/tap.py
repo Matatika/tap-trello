@@ -1,0 +1,65 @@
+"""trello tap class."""
+
+from typing import List
+
+from singer_sdk import Tap, Stream
+from singer_sdk import typing as th  # JSON schema typing helpers
+
+# TODO: Import your custom stream types here:
+from tap_trello.streams import (
+    TrelloStream,
+    ActionsStream,
+    BoardsStream,
+    CardsStream,
+    ChecklistsStream,
+    MemberStream,
+    ListsStream,
+    UsersStream,
+)
+
+# TODO: Compile a list of custom stream types here
+#       OR rewrite discover_streams() below with your custom logic.
+STREAM_TYPES = [
+    ActionsStream,
+    BoardsStream,
+    CardsStream,
+    ChecklistsStream,
+    MemberStream,
+    ListsStream,
+    UsersStream,
+]
+
+
+class TapTrello(Tap):
+    """trello tap class."""
+
+    name = "tap-trello"
+
+    # TODO: Update this section with the actual config values you expect:
+    config_jsonschema = th.PropertiesList(
+        th.Property(
+            "developer_api_key",
+            th.StringType,
+            required=True,
+            description="Trello Developer API Key",
+        ),
+        th.Property(
+            "oauth_secret",
+            th.StringType,
+            required=True,
+            description="Trello API Oauth Secret",
+        ),
+        th.Property(
+            "access_token",
+            th.StringType,
+            required=True,
+            description="Trello API generated access token",
+        ),
+        th.Property(
+            "start_date", th.DateTimeType, description="Date to start syncing data from"
+        ),
+    ).to_dict()
+
+    def discover_streams(self) -> List[Stream]:
+        """Return a list of discovered streams."""
+        return [stream_class(tap=self) for stream_class in STREAM_TYPES]
