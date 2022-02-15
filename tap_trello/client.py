@@ -6,7 +6,7 @@ from memoization import cached
 
 from singer_sdk.streams import RESTStream
 
-from tap_trello.auth import trelloAuthenticator, trelloSimpleAuth
+from tap_trello.auth import trelloAuthenticator
 
 
 class TrelloStream(RESTStream):
@@ -21,7 +21,7 @@ class TrelloStream(RESTStream):
     @cached
     def authenticator(self) -> trelloAuthenticator:
         """Return a new authenticator object."""
-        return trelloSimpleAuth(self)
+        return trelloAuthenticator(self)
 
     @property
     def http_headers(self) -> dict:

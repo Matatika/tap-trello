@@ -4,7 +4,7 @@ import unittest
 import responses
 import singer
 
-from tap_trello.tap import TapTrello, TapTrello
+from tap_trello.tap import TapTrello
 
 import tap_trello.tests.utils as test_utils
 

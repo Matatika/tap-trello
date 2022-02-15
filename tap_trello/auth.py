@@ -2,38 +2,12 @@
 
 
 from singer_sdk.authenticators import (
-    OAuthAuthenticator,
     SingletonMeta,
     SimpleAuthenticator,
 )
 
 
-class trelloAuthenticator(OAuthAuthenticator, metaclass=SingletonMeta):
-    """Authenticator class for trello."""
-
-    @property
-    def oauth_request_body(self) -> dict:
-        """Define the OAuth request body for the trello API."""
-        # TODO: Define the request body needed for the API.
-        return {}
-
-        # 'resource': 'https://analysis.windows.net/powerbi/api',
-        # 'scope': self.oauth_scopes,
-        # 'client_id': self.config["client_id"],
-        # 'username': self.config["username"],
-        # 'password': self.config["password"],
-        # 'grant_type': 'password',
-
-    @classmethod
-    def create_for_stream(cls, stream) -> "trelloAuthenticator":
-        return cls(
-            stream=stream,
-            auth_endpoint="TODO: OAuth Endpoint URL",
-            oauth_scopes="TODO: OAuth Scopes",
-        )
-
-
-class trelloSimpleAuth(SimpleAuthenticator, metaclass=SingletonMeta):
+class trelloAuthenticator(SimpleAuthenticator, metaclass=SingletonMeta):
     @property
     def oauth_request_body(self) -> dict:
         """Define the OAuth request body for the trello API."""

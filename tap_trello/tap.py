@@ -40,19 +40,11 @@ class TapTrello(Tap):
         th.Property(
             "developer_api_key",
             th.StringType,
-            required=True,
             description="Trello Developer API Key",
-        ),
-        th.Property(
-            "oauth_secret",
-            th.StringType,
-            required=True,
-            description="Trello API Oauth Secret",
         ),
         th.Property(
             "access_token",
             th.StringType,
-            required=True,
             description="Trello API generated access token",
         ),
         th.Property(
