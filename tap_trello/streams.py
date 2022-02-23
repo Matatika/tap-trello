@@ -93,7 +93,13 @@ class ListsStream(TrelloStream):
     name = "lists"
     path = "/boards/{boardId}/lists"
     primary_keys = ["id"]
-    schema_filepath = SCHEMAS_DIR / "lists.json"
+
+    schema = th.PropertiesList(
+        th.Property("id", th.StringType),
+        th.Property("name", th.StringType),
+        th.Property("closed", th.BooleanType),
+        th.Property("idBoard", th.StringType),
+    ).to_dict()
 
     replication_method = "FULL_TABLE"
 
@@ -106,6 +112,12 @@ class UsersStream(TrelloStream):
     name = "users"
     path = "/boards/{boardId}/members"
     primary_keys = ["id"]
-    schema_filepath = SCHEMAS_DIR / "users.json"
+
+    schema = th.PropertiesList(
+        th.Property("id", th.StringType),
+        th.Property("username", th.StringType),
+        th.Property("fullName", th.StringType),
+        th.Property("idBoard", th.StringType),
+    ).to_dict()
 
     replication_method = "FULL_TABLE"
