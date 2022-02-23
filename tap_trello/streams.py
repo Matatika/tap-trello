@@ -36,7 +36,6 @@ class BoardsStream(TrelloStream):
     name = "boards"
     path = "/members/{id}/boards"
     primary_keys = ["id"]
-    schema_filepath = SCHEMAS_DIR / "boards.json"
 
     replication_method = "FULL_TABLE"
 
@@ -53,7 +52,6 @@ class ActionsStream(TrelloStream):
     name = "actions"
     path = "/boards/{boardId}/actions"
     primary_keys = ["id"]
-    schema_filepath = SCHEMAS_DIR / "actions.json"
 
     replication_method = "INCREMENTAL"
     replication_key = "date"
@@ -67,7 +65,6 @@ class CardsStream(TrelloStream):
     name = "cards"
     path = "/boards/{boardId}/cards/all"
     primary_keys = ["id"]
-    schema_filepath = SCHEMAS_DIR / "cards.json"
 
     replication_method = "FULL_TABLE"
 
@@ -80,7 +77,6 @@ class ChecklistsStream(TrelloStream):
     name = "checklists"
     path = "/boards/{boardId}/checklists"
     primary_keys = ["id"]
-    schema_filepath = SCHEMAS_DIR / "checklists.json"
 
     replication_method = "FULL_TABLE"
 
