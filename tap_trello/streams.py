@@ -19,7 +19,7 @@ class MemberStream(TrelloStream):
 
     """Define member stream."""
 
-    name = "member"
+    name = "stream_trello_member"
     path = "/members/me"
     primary_keys = ["id"]
     schema = th.PropertiesList(
@@ -38,7 +38,7 @@ class BoardsStream(TrelloStream):
     parent_stream_type = MemberStream
 
     """Define boards stream."""
-    name = "boards"
+    name = "stream_trello_boards"
     path = "/members/{id}/boards"
     primary_keys = ["id"]
     schema = BoardsObject.schema
@@ -55,7 +55,7 @@ class ActionsStream(TrelloStream):
     parent_stream_type = BoardsStream
 
     """Define actions stream."""
-    name = "actions"
+    name = "stream_trello_actions"
     path = "/boards/{boardId}/actions"
     primary_keys = ["id"]
 
@@ -70,7 +70,7 @@ class CardsStream(TrelloStream):
     parent_stream_type = BoardsStream
 
     """Define cards stream."""
-    name = "cards"
+    name = "stream_trello_cards"
     path = "/boards/{boardId}/cards/all"
     primary_keys = ["id"]
     schema = CardsObject.schema
@@ -83,7 +83,7 @@ class ChecklistsStream(TrelloStream):
     parent_stream_type = BoardsStream
 
     """Define checklists stream."""
-    name = "checklists"
+    name = "stream_trello_checklists"
     path = "/boards/{boardId}/checklists"
     primary_keys = ["id"]
     schema = ChecklistsObject.schema
@@ -96,7 +96,7 @@ class ListsStream(TrelloStream):
     parent_stream_type = BoardsStream
 
     """Define lists stream."""
-    name = "lists"
+    name = "stream_trello_lists"
     path = "/boards/{boardId}/lists"
     primary_keys = ["id"]
 
@@ -115,7 +115,7 @@ class UsersStream(TrelloStream):
     parent_stream_type = BoardsStream
 
     """Define users stream."""
-    name = "users"
+    name = "stream_trello_users"
     path = "/boards/{boardId}/members"
     primary_keys = ["id"]
 
