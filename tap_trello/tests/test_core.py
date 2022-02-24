@@ -24,6 +24,3 @@ def test_standard_tap_tests():
     )
     for test in tests:
         test()
-
-
-# TODO: Create additional tests as appropriate for your tap.

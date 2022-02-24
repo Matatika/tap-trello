@@ -6,17 +6,20 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
 ## Installation
 
-- [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
+Currently the best way to use this tap is to pip install from the github repository.
 
-```bash
-pipx install tap-trello
-```
+You can also add this tap as a [custom plugin](https://docs.meltano.com/concepts/plugins#custom-plugins) to your Meltano project.
 
 ## Configuration
 
 ### Accepted Config Options
 
-- [ ] `Developer TODO:` Provide a list of config options accepted by the tap.
+Tap settings (required):
+
+- `developer_api_key` - Your Trello developer api key
+- `access_token` - Your Trello access token
+
+You can find out how to get these settings in the next section: Source Authentication and Authorization.
 
 A full list of supported settings and capabilities for this
 tap is available by running:
@@ -27,7 +30,15 @@ tap-trello --about
 
 ### Source Authentication and Authorization
 
-- [ ] `Developer TODO:` If your tap requires special access on the source system, or any special authentication requirements, provide those here.
+To get the setting required to use this tap go to the [Trello app-key page]().
+
+#### Getting your `developer_api_key`
+
+If you are logged in you will see a screen with the title Developer API Keys. The key shown in the grey box directly below that is your `developer_api_key`.
+
+#### Getting your `access_token`
+
+To get your `access_token` you need to click the `Token` at the end of the first paragraph of text on that page. This will open a new window showing what permissions you are allowing the token to have, and once you click Allow, you will be redirected to a page with a grey box with your `access_token` in.
 
 ## Usage
 
@@ -40,10 +51,6 @@ tap-trello --version
 tap-trello --help
 tap-trello --config CONFIG --discover > ./catalog.json
 ```
-
-## Developer Resources
-
-- [ ] `Developer TODO:` As a first step, scan the entire project for the text "`TODO:`" and complete any recommended steps, deleting the "TODO" references once completed.
 
 ### Initialize your Development Environment
 
