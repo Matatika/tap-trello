@@ -42,7 +42,12 @@ class TapTrello(Tap):
             "access_token",
             th.StringType,
             description="Trello API generated access token",
-        )
+        ),
+        th.Property(
+            "start_date",
+            th.DateTimeType,
+            description="Date to start syncing actions and cards data from",
+        ),
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:

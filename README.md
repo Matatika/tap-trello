@@ -14,10 +14,14 @@ You can also add this tap as a [custom plugin](https://docs.meltano.com/concepts
 
 ### Accepted Config Options
 
-Tap settings (required):
+Tap settings:
 
 - `developer_api_key` - Your Trello developer api key
 - `access_token` - Your Trello access token
+
+Optional:
+
+- `start_date` - The date to sync Actions and Cards from. Format: `2010-01-01T00:00:00Z`
 
 You can find out how to get these settings in the next section: Source Authentication and Authorization.
 

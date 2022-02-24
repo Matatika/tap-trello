@@ -1,5 +1,9 @@
 """REST client handling, including trelloStream base class."""
 
+import requests
+
+from singer_sdk.helpers.jsonpath import extract_jsonpath
+
 from typing import Any, Dict, Optional
 
 from memoization import cached
@@ -15,7 +19,8 @@ class TrelloStream(RESTStream):
     url_base = "https://api.trello.com/1"
 
     records_jsonpath = "$[*]"
-    next_page_token_jsonpath = "$.next_page"
+
+    limit = 1000
 
     @property
     @cached
@@ -35,9 +40,29 @@ class TrelloStream(RESTStream):
         params: dict = {}
         params["key"] = self.config.get("developer_api_key")
         params["token"] = self.config.get("access_token")
+        if self.config.get("start_date", None):
+            params["since"] = self.config.get("start_date")
+        params["limit"] = self.limit
         if next_page_token:
-            params["page"] = next_page_token
+            params["before"] = next_page_token
         if self.replication_key:
             params["sort"] = "asc"
             params["order_by"] = self.replication_key
         return params
+
+    def get_next_page_token(
+        self, response: requests.Response, previous_token: Optional[Any]
+    ) -> Any:
+        super().get_next_page_token(response, previous_token)
+
+        all_matches = extract_jsonpath(f"$[{self.limit - 1}].id", response.json())
+
+        try:
+            last_element = next(iter(all_matches))
+            return last_element
+        except StopIteration:
+            return None
+
+        # if len(response.json()) > 0:
+        #     last_element = response.json()[-1]["id"]
+        #     self.logger.error(last_element)

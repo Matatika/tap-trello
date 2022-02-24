@@ -15,7 +15,6 @@ class TestTapTrelloWithBaseCredentials(unittest.TestCase):
     def setUp(self):
         self.mock_config = {
             "developer_api_key": "1234",
-            "oauth_secret": "1234",
             "access_token": "1234",
         }
         responses.reset()

@@ -15,6 +15,8 @@ plugins:
           kind: password
         - name: access_token
           kind: password
+        - name: start_date
+          placeholder: "2010-01-01T00:00:00Z"
   loaders:
     - name: target-jsonl
       variant: andyh1203
