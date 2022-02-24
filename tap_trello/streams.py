@@ -7,6 +7,11 @@ from singer_sdk import typing as th
 
 from tap_trello.client import TrelloStream
 
+from tap_trello.schemas.actions import ActionsObject
+from tap_trello.schemas.boards import BoardsObject
+from tap_trello.schemas.cards import CardsObject
+from tap_trello.schemas.checklists import ChecklistsObject
+
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
@@ -36,6 +41,7 @@ class BoardsStream(TrelloStream):
     name = "boards"
     path = "/members/{id}/boards"
     primary_keys = ["id"]
+    schema = BoardsObject.schema
 
     replication_method = "FULL_TABLE"
 
@@ -53,6 +59,8 @@ class ActionsStream(TrelloStream):
     path = "/boards/{boardId}/actions"
     primary_keys = ["id"]
 
+    schema = ActionsObject.schema
+
     replication_method = "INCREMENTAL"
     replication_key = "date"
 
@@ -65,6 +73,7 @@ class CardsStream(TrelloStream):
     name = "cards"
     path = "/boards/{boardId}/cards/all"
     primary_keys = ["id"]
+    schema = CardsObject.schema
 
     replication_method = "FULL_TABLE"
 
@@ -77,6 +86,7 @@ class ChecklistsStream(TrelloStream):
     name = "checklists"
     path = "/boards/{boardId}/checklists"
     primary_keys = ["id"]
+    schema = ChecklistsObject.schema
 
     replication_method = "FULL_TABLE"
 
