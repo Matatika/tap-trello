@@ -62,7 +62,3 @@ class TrelloStream(RESTStream):
             return last_element
         except StopIteration:
             return None
-
-        # if len(response.json()) > 0:
-        #     last_element = response.json()[-1]["id"]
-        #     self.logger.error(last_element)
