@@ -21,6 +21,3 @@ plugins:
     - name: target-jsonl
       variant: andyh1203
       pip_url: target-jsonl
-    - name: target-postgres
-      variant: meltano
-      pip_url: -e /home/dw/Documents/discard/target-postgres
