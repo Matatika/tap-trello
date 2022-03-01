@@ -1,5 +1,6 @@
 """Stream type classes for tap-trello."""
 
+from multiprocessing import parent_process
 from pathlib import Path
 from typing import Optional
 
@@ -117,13 +118,18 @@ class UsersStream(TrelloStream):
     """Define users stream."""
     name = "stream_trello_users"
     path = "/boards/{boardId}/members"
-    primary_keys = ["id"]
+    primary_keys = ["id","boardId"]
 
     schema = th.PropertiesList(
         th.Property("id", th.StringType),
         th.Property("username", th.StringType),
         th.Property("fullName", th.StringType),
-        th.Property("idBoard", th.StringType),
+        th.Property("boardId", th.StringType)
     ).to_dict()
+
+    def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
+        super().post_process(row, context)
+        row["boardId"] = context["boardId"]
+        return row
 
     replication_method = "FULL_TABLE"
