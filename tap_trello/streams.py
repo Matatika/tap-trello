@@ -48,7 +48,7 @@ class BoardsStream(TrelloStream):
 
     def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
         """Return a context dictionary for child streams."""
-        return {"boardId": record["id"]}
+        return {"idBoard": record["id"]}
 
 
 class ActionsStream(TrelloStream):
@@ -57,7 +57,7 @@ class ActionsStream(TrelloStream):
 
     """Define actions stream."""
     name = "stream_trello_actions"
-    path = "/boards/{boardId}/actions"
+    path = "/boards/{idBoard}/actions"
     primary_keys = ["id"]
 
     schema = ActionsObject.schema
@@ -72,7 +72,7 @@ class CardsStream(TrelloStream):
 
     """Define cards stream."""
     name = "stream_trello_cards"
-    path = "/boards/{boardId}/cards/all"
+    path = "/boards/{idBoard}/cards/all"
     primary_keys = ["id"]
     schema = CardsObject.schema
 
@@ -85,7 +85,7 @@ class ChecklistsStream(TrelloStream):
 
     """Define checklists stream."""
     name = "stream_trello_checklists"
-    path = "/boards/{boardId}/checklists"
+    path = "/boards/{idBoard}/checklists"
     primary_keys = ["id"]
     schema = ChecklistsObject.schema
 
@@ -98,7 +98,7 @@ class ListsStream(TrelloStream):
 
     """Define lists stream."""
     name = "stream_trello_lists"
-    path = "/boards/{boardId}/lists"
+    path = "/boards/{idBoard}/lists"
     primary_keys = ["id"]
 
     schema = th.PropertiesList(
@@ -117,19 +117,19 @@ class UsersStream(TrelloStream):
 
     """Define users stream."""
     name = "stream_trello_users"
-    path = "/boards/{boardId}/members"
-    primary_keys = ["id","boardId"]
+    path = "/boards/{idBoard}/members"
+    primary_keys = ["id","idBoard"]
 
     schema = th.PropertiesList(
         th.Property("id", th.StringType),
         th.Property("username", th.StringType),
         th.Property("fullName", th.StringType),
-        th.Property("boardId", th.StringType)
+        th.Property("idBoard", th.StringType)
     ).to_dict()
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
         super().post_process(row, context)
-        row["boardId"] = context["boardId"]
+        row["idBoard"] = context["idBoard"]
         return row
 
     replication_method = "FULL_TABLE"
