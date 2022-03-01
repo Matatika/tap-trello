@@ -13,20 +13,35 @@ class ActionsObject(CustomObject):
                 th.Property(
                     "card",
                     th.ObjectType(
-                        th.Property("idList", th.StringType),
                         th.Property("id", th.StringType),
                         th.Property("name", th.StringType),
+                        th.Property("desc", th.StringType),
+                        th.Property("idList", th.StringType),
                         th.Property("idShort", th.NumberType),
                         th.Property("shortLink", th.StringType),
                     ),
                 ),
-                th.Property("old", th.ObjectType(th.Property("idList", th.StringType))),
+                th.Property(
+                    "old", 
+                    th.ObjectType(
+                        th.Property("name", th.StringType),
+                        th.Property("desc", th.StringType),
+                        th.Property("idList", th.StringType),
+                    )
+                ),
                 th.Property(
                     "board",
                     th.ObjectType(
                         th.Property("id", th.StringType),
                         th.Property("name", th.StringType),
                         th.Property("shortLink", th.StringType),
+                    ),
+                ),
+                th.Property(
+                    "list",
+                    th.ObjectType(
+                        th.Property("id", th.StringType),
+                        th.Property("name", th.StringType),
                     ),
                 ),
                 th.Property(
@@ -41,6 +56,21 @@ class ActionsObject(CustomObject):
                     th.ObjectType(
                         th.Property("id", th.StringType),
                         th.Property("name", th.StringType),
+                    ),
+                ),
+                th.Property(
+                    "checklist",
+                    th.ObjectType(
+                        th.Property("id", th.StringType),
+                        th.Property("name", th.StringType),
+                    ),
+                ),
+                th.Property(
+                    "checkItem",
+                    th.ObjectType(
+                        th.Property("id", th.StringType),
+                        th.Property("name", th.StringType),
+                        th.Property("state", th.StringType),
                     ),
                 ),
             ),
