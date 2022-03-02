@@ -34,7 +34,7 @@ tap-trello --about
 
 ### Source Authentication and Authorization
 
-To get the setting required to use this tap go to the [Trello app-key page]().
+To get the settings required to use this tap go to the [Trello app-key page](https://trello.com/app-key).
 
 #### Getting your `developer_api_key`
 
