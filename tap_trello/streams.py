@@ -16,11 +16,11 @@ from tap_trello.schemas.checklists import ChecklistsObject
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
-class MemberStream(TrelloStream):
+class IdMemberStream(TrelloStream):
 
-    """Define member stream."""
+    """Define id member stream."""
 
-    name = "stream_trello_member"
+    name = "stream_trello_id_member"
     path = "/members/me"
     primary_keys = ["id"]
     schema = th.PropertiesList(
@@ -36,7 +36,7 @@ class MemberStream(TrelloStream):
 
 class BoardsStream(TrelloStream):
 
-    parent_stream_type = MemberStream
+    parent_stream_type = IdMemberStream
 
     """Define boards stream."""
     name = "stream_trello_boards"
@@ -111,12 +111,12 @@ class ListsStream(TrelloStream):
     replication_method = "FULL_TABLE"
 
 
-class UsersStream(TrelloStream):
+class MembersStream(TrelloStream):
 
     parent_stream_type = BoardsStream
 
-    """Define users stream."""
-    name = "stream_trello_users"
+    """Define members stream."""
+    name = "stream_trello_members"
     path = "/boards/{idBoard}/members"
     primary_keys = ["id","idBoard"]
 

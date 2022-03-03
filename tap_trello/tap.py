@@ -11,9 +11,9 @@ from tap_trello.streams import (
     BoardsStream,
     CardsStream,
     ChecklistsStream,
-    MemberStream,
+    IdMemberStream,
     ListsStream,
-    UsersStream,
+    MembersStream,
 )
 
 STREAM_TYPES = [
@@ -21,9 +21,9 @@ STREAM_TYPES = [
     BoardsStream,
     CardsStream,
     ChecklistsStream,
-    MemberStream,
+    IdMemberStream,
     ListsStream,
-    UsersStream,
+    MembersStream,
 ]
 
 
