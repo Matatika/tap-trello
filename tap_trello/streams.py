@@ -1,6 +1,5 @@
 """Stream type classes for tap-trello."""
 
-from multiprocessing import parent_process
 from pathlib import Path
 from typing import Optional
 
