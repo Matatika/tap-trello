@@ -28,7 +28,12 @@ class CardsObject(CustomObject):
             th.Property("dueComplete", th.BooleanType),
             th.Property("start", th.BooleanType),
         )),
-        th.Property("checkItemStates", th.StringType),
+        th.Property("checkItemStates", th.ArrayType(
+            th.PropertiesList(
+                th.Property("idCheckItem", th.StringType),
+                th.Property("state", th.StringType)
+            ),
+        )),
         th.Property("closed", th.BooleanType),
         th.Property("dueComplete", th.BooleanType),
         th.Property("dateLastActivity", th.StringType),
