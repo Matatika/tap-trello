@@ -14,7 +14,7 @@ class BoardsObject(CustomObject):
         th.Property("idOrganization", th.StringType),
         th.Property("idEnterprise", th.StringType),
         th.Property("shortLink", th.StringType),
-        th.Property("powerUps", th.ArrayType(th.ObjectType())),
+        th.Property("powerUps", th.ArrayType(th.StringType)),
         th.Property("dateLastActivity", th.DateTimeType),
         th.Property("dateLastView", th.DateTimeType),
         th.Property("shortUrl", th.StringType),
