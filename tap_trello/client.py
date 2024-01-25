@@ -22,6 +22,9 @@ class TrelloStream(RESTStream):
 
     limit = 1000
 
+    # Gets the next page token with a jsonpath
+    next_page_token_jsonpath = f"$[{limit - 1}].id"
+
     @property
     @cached
     def authenticator(self) -> trelloAuthenticator:
@@ -49,16 +52,3 @@ class TrelloStream(RESTStream):
             params["sort"] = "asc"
             params["order_by"] = self.replication_key
         return params
-
-    def get_next_page_token(
-        self, response: requests.Response, previous_token: Optional[Any]
-    ) -> Any:
-        super().get_next_page_token(response, previous_token)
-
-        all_matches = extract_jsonpath(f"$[{self.limit - 1}].id", response.json())
-
-        try:
-            last_element = next(iter(all_matches))
-            return last_element
-        except StopIteration:
-            return None
