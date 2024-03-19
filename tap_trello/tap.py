@@ -1,32 +1,24 @@
-"""trello tap class."""
+"""Trello tap class."""
 
 from singer_sdk import Tap
-from singer_sdk import typing as th  # JSON schema typing helpers
+from singer_sdk import typing as th
 from typing_extensions import override
 
-from tap_trello.streams import (
-    ActionsStream,
-    BoardsStream,
-    CardsStream,
-    ChecklistsStream,
-    IdMemberStream,
-    ListsStream,
-    MembersStream,
-)
+from tap_trello import streams
 
 STREAM_TYPES = [
-    ActionsStream,
-    BoardsStream,
-    CardsStream,
-    ChecklistsStream,
-    IdMemberStream,
-    ListsStream,
-    MembersStream,
+    streams.ActionsStream,
+    streams.BoardsStream,
+    streams.CardsStream,
+    streams.ChecklistsStream,
+    streams.IdMemberStream,
+    streams.ListsStream,
+    streams.MembersStream,
 ]
 
 
 class TapTrello(Tap):
-    """trello tap class."""
+    """Trello tap class."""
 
     name = "tap-trello"
 

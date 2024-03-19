@@ -1,4 +1,4 @@
-"""trello Authentication."""
+"""Trello Authentication."""
 
 from singer_sdk.authenticators import SimpleAuthenticator, SingletonMeta
 from typing_extensions import override

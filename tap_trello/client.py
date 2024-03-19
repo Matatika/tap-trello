@@ -1,4 +1,4 @@
-"""REST client handling, including trelloStream base class."""
+"""REST client handling, including TrelloStream base class."""
 
 from memoization import cached
 from singer_sdk.streams import RESTStream
@@ -10,13 +10,10 @@ from tap_trello.auth import TrelloAuthenticator
 class TrelloStream(RESTStream):
     """trello stream class."""
 
-    url_base = "https://api.trello.com/1"
-
-    records_jsonpath = "$[*]"
-
     limit = 1000
 
-    # Gets the next page token with a jsonpath
+    url_base = "https://api.trello.com/1"
+    records_jsonpath = "$[*]"
     next_page_token_jsonpath = f"$[{limit - 1}].id"
 
     @property
@@ -27,16 +24,18 @@ class TrelloStream(RESTStream):
 
     @override
     def get_url_params(self, context, next_page_token):
-        """Return a dictionary of values to be used in URL parameterization."""
-        params: dict = {}
-        params["key"] = self.config.get("developer_api_key")
-        params["token"] = self.config.get("access_token")
-        if self.config.get("start_date", None):
-            params["since"] = self.config.get("start_date")
+        params = super().get_url_params(context, next_page_token)
+
         params["limit"] = self.limit
+        params["key"] = self.config["developer_api_key"]
+        params["token"] = self.config["access_token"]
+
+        if "start_date" in self.config:
+            params["since"] = self.config.get("start_date")
         if next_page_token:
             params["before"] = next_page_token
         if self.replication_key:
             params["sort"] = "asc"
             params["order_by"] = self.replication_key
+
         return params

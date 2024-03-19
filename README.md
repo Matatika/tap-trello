@@ -1,6 +1,6 @@
 # tap-trello
 
-`tap-trello` is a Singer tap for trello.
+`tap-trello` is a Singer tap for Trello.
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 

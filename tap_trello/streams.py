@@ -1,6 +1,7 @@
 """Stream type classes for tap-trello."""
 
 from singer_sdk import typing as th
+from singer_sdk.streams.core import REPLICATION_INCREMENTAL
 from typing_extensions import override
 
 from tap_trello.client import TrelloStream
@@ -11,16 +12,18 @@ from tap_trello.schemas.checklists import ChecklistsObject
 
 
 class IdMemberStream(TrelloStream):
-    """Define id member stream."""
+    """Define ID member stream."""
 
     name = "stream_trello_id_member"
     path = "/members/me"
     primary_keys = ("id",)
     schema = th.PropertiesList(
-        th.Property("id", th.StringType, description="The user's system ID")
+        th.Property(
+            "id",
+            th.StringType,
+            description="The user's system ID",
+        ),
     ).to_dict()
-
-    replication_method = "FULL_TABLE"
 
     @override
     def get_child_context(self, record, context):
@@ -31,14 +34,10 @@ class BoardsStream(TrelloStream):
     """Define boards stream."""
 
     parent_stream_type = IdMemberStream
-
-    """Define boards stream."""
     name = "stream_trello_boards"
     path = "/members/{id}/boards"
     primary_keys = ("id",)
     schema = BoardsObject.schema
-
-    replication_method = "FULL_TABLE"
 
     @override
     def get_child_context(self, record, context):
@@ -49,15 +48,12 @@ class ActionsStream(TrelloStream):
     """Define actions stream."""
 
     parent_stream_type = BoardsStream
-
-    """Define actions stream."""
     name = "stream_trello_actions"
     path = "/boards/{idBoard}/actions"
     primary_keys = ("id",)
-
     schema = ActionsObject.schema
 
-    replication_method = "INCREMENTAL"
+    replication_method = REPLICATION_INCREMENTAL
     replication_key = "date"
 
 
@@ -65,36 +61,26 @@ class CardsStream(TrelloStream):
     """Define cards stream."""
 
     parent_stream_type = BoardsStream
-
-    """Define cards stream."""
     name = "stream_trello_cards"
     path = "/boards/{idBoard}/cards/all"
     primary_keys = ("id",)
     schema = CardsObject.schema
-
-    replication_method = "FULL_TABLE"
 
 
 class ChecklistsStream(TrelloStream):
     """Define checklists stream."""
 
     parent_stream_type = BoardsStream
-
-    """Define checklists stream."""
     name = "stream_trello_checklists"
     path = "/boards/{idBoard}/checklists"
     primary_keys = ("id",)
     schema = ChecklistsObject.schema
-
-    replication_method = "FULL_TABLE"
 
 
 class ListsStream(TrelloStream):
     """Define lists stream."""
 
     parent_stream_type = BoardsStream
-
-    """Define lists stream."""
     name = "stream_trello_lists"
     path = "/boards/{idBoard}/lists"
     primary_keys = ("id",)
@@ -106,15 +92,11 @@ class ListsStream(TrelloStream):
         th.Property("idBoard", th.StringType),
     ).to_dict()
 
-    replication_method = "FULL_TABLE"
-
 
 class MembersStream(TrelloStream):
     """Define members stream."""
 
     parent_stream_type = BoardsStream
-
-    """Define members stream."""
     name = "stream_trello_members"
     path = "/boards/{idBoard}/members"
     primary_keys = ("id", "idBoard")
@@ -130,6 +112,5 @@ class MembersStream(TrelloStream):
     def post_process(self, row, context=None):
         row = super().post_process(row, context)
         row["idBoard"] = context["idBoard"]
-        return row
 
-    replication_method = "FULL_TABLE"
+        return row
