@@ -1,16 +1,10 @@
 """REST client handling, including trelloStream base class."""
 
-import requests
-
-from singer_sdk.helpers.jsonpath import extract_jsonpath
-
-from typing import Any, Dict, Optional
-
 from memoization import cached
-
 from singer_sdk.streams import RESTStream
+from typing_extensions import override
 
-from tap_trello.auth import trelloAuthenticator
+from tap_trello.auth import TrelloAuthenticator
 
 
 class TrelloStream(RESTStream):
@@ -27,18 +21,12 @@ class TrelloStream(RESTStream):
 
     @property
     @cached
-    def authenticator(self) -> trelloAuthenticator:
-        """Return a new authenticator object."""
-        return trelloAuthenticator(self)
+    @override
+    def authenticator(self):
+        return TrelloAuthenticator(self)
 
-    @property
-    def http_headers(self) -> dict:
-        """Return the http headers needed."""
-        return {}
-
-    def get_url_params(
-        self, context: Optional[dict], next_page_token: Optional[Any]
-    ) -> Dict[str, Any]:
+    @override
+    def get_url_params(self, context, next_page_token):
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
         params["key"] = self.config.get("developer_api_key")
