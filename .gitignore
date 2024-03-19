@@ -134,7 +134,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-.github
-.secrets
-.vscode
