@@ -1,9 +1,11 @@
+"""Schema definitions for actions objects."""
+
 from singer_sdk import typing as th
-from tap_trello.schemas.utils.custom_schema_object import CustomObject
+
+from tap_trello.schemas.utils.custom_object import CustomObject
 
 
 class ActionsObject(CustomObject):
-
     properties = th.PropertiesList(
         th.Property("id", th.StringType),
         th.Property("idMemberCreator", th.StringType),
@@ -22,12 +24,12 @@ class ActionsObject(CustomObject):
                     ),
                 ),
                 th.Property(
-                    "old", 
+                    "old",
                     th.ObjectType(
                         th.Property("name", th.StringType),
                         th.Property("desc", th.StringType),
                         th.Property("idList", th.StringType),
-                    )
+                    ),
                 ),
                 th.Property(
                     "board",

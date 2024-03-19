@@ -1,9 +1,11 @@
+"""Schema definitions for boards objects."""
+
 from singer_sdk import typing as th
-from tap_trello.schemas.utils.custom_schema_object import CustomObject
+
+from tap_trello.schemas.utils.custom_object import CustomObject
 
 
 class BoardsObject(CustomObject):
-
     properties = th.PropertiesList(
         th.Property("id", th.StringType),
         th.Property("name", th.StringType),
@@ -21,5 +23,5 @@ class BoardsObject(CustomObject):
         th.Property("ixUpdate", th.StringType),
         th.Property("enterpriseOwned", th.BooleanType),
         th.Property("premiumFeatures", th.ArrayType(th.StringType)),
-        th.Property("idMemberCreator", th.StringType)
+        th.Property("idMemberCreator", th.StringType),
     )

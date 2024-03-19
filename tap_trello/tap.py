@@ -1,12 +1,10 @@
 """trello tap class."""
 
-from typing import List
-
-from singer_sdk import Tap, Stream
+from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
+from typing_extensions import override
 
 from tap_trello.streams import (
-    TrelloStream,
     ActionsStream,
     BoardsStream,
     CardsStream,
@@ -50,6 +48,6 @@ class TapTrello(Tap):
         ),
     ).to_dict()
 
-    def discover_streams(self) -> List[Stream]:
-        """Return a list of discovered streams."""
+    @override
+    def discover_streams(self):
         return [stream_class(tap=self) for stream_class in STREAM_TYPES]

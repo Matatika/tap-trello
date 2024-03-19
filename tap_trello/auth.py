@@ -1,14 +1,13 @@
 """trello Authentication."""
 
-
-from singer_sdk.authenticators import (
-    SingletonMeta,
-    SimpleAuthenticator,
-)
+from singer_sdk.authenticators import SimpleAuthenticator, SingletonMeta
+from typing_extensions import override
 
 
-class trelloAuthenticator(SimpleAuthenticator, metaclass=SingletonMeta):
+class TrelloAuthenticator(SimpleAuthenticator, metaclass=SingletonMeta):
+    """Authenticator class for Trello."""
+
     @property
-    def oauth_request_body(self) -> dict:
-        """Define the OAuth request body for the trello API."""
+    @override
+    def oauth_request_body(self):
         return {}
