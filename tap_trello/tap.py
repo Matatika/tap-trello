@@ -45,3 +45,7 @@ class TapTrello(Tap):
     @override
     def discover_streams(self):
         return [stream_class(tap=self) for stream_class in STREAM_TYPES]
+
+
+if __name__ == "__main__":
+    TapTrello.cli()
