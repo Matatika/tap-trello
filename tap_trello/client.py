@@ -25,10 +25,7 @@ class TrelloStream(RESTStream):
     @override
     def get_url_params(self, context, next_page_token):
         params = super().get_url_params(context, next_page_token)
-
         params["limit"] = self.limit
-        params["key"] = self.config["developer_api_key"]
-        params["token"] = self.config["access_token"]
 
         if "start_date" in self.config:
             params["since"] = self.config.get("start_date")
