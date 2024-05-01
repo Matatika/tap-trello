@@ -5,6 +5,8 @@ name: Test tap-trello
 
 on:
   push:
+    branches: [master]
+    paths-ignore: [README.md]
   schedule:
   - cron: 0 9 * * *
 
