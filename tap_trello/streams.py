@@ -37,7 +37,7 @@ class BoardsStream(TrelloStream):
     name = "stream_trello_boards"
     path = "/members/{id}/boards"
     primary_keys = ("id",)
-    schema = BoardsObject.schema
+    schema = BoardsObject.to_dict()
 
     @override
     def get_child_context(self, record, context):
@@ -51,7 +51,7 @@ class ActionsStream(TrelloStream):
     name = "stream_trello_actions"
     path = "/boards/{idBoard}/actions"
     primary_keys = ("id",)
-    schema = ActionsObject.schema
+    schema = ActionsObject.to_dict()
 
     replication_method = REPLICATION_INCREMENTAL
     replication_key = "date"
@@ -64,7 +64,7 @@ class CardsStream(TrelloStream):
     name = "stream_trello_cards"
     path = "/boards/{idBoard}/cards/all"
     primary_keys = ("id",)
-    schema = CardsObject.schema
+    schema = CardsObject.to_dict()
 
 
 class ChecklistsStream(TrelloStream):
@@ -74,7 +74,7 @@ class ChecklistsStream(TrelloStream):
     name = "stream_trello_checklists"
     path = "/boards/{idBoard}/checklists"
     primary_keys = ("id",)
-    schema = ChecklistsObject.schema
+    schema = ChecklistsObject.to_dict()
 
 
 class ListsStream(TrelloStream):
