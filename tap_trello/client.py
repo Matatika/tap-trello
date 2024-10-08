@@ -1,6 +1,7 @@
 """REST client handling, including TrelloStream base class."""
 
-from memoization import cached
+from functools import cached_property
+
 from singer_sdk.streams import RESTStream
 from typing_extensions import override
 
@@ -16,8 +17,7 @@ class TrelloStream(RESTStream):
     records_jsonpath = "$[*]"
     next_page_token_jsonpath = f"$[{limit - 1}].id"
 
-    @property
-    @cached
+    @cached_property
     @override
     def authenticator(self):
         return TrelloAuthenticator(self)
