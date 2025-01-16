@@ -22,7 +22,7 @@ warn_unused_configs = true
 
 [tool.ruff]
 src = ["tap_trello"]
-target-version = "py38"
+target-version = "py39"
 
 [tool.ruff.lint]
 ignore = [
