@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-trello"
-version = "0.7.0"
+version = "0.8.0"
 description = "`tap-trello` is a Singer tap for Trello, built with the Meltano SDK for Singer Taps."
 authors = ["Daniel Walker"]
 keywords = [
