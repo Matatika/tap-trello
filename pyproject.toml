@@ -10,7 +10,7 @@ keywords = [
 license = "AGPL-3.0"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 singer-sdk = "^0.42.1"
 
 [tool.poetry.dev-dependencies]
@@ -22,7 +22,7 @@ warn_unused_configs = true
 
 [tool.ruff]
 src = ["tap_trello"]
-target-version = "py38"
+target-version = "py39"
 
 [tool.ruff.lint]
 ignore = [
