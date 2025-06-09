@@ -14,7 +14,7 @@ python = "^3.9"
 singer-sdk = "^0.46.4"
 
 [tool.poetry.dev-dependencies]
-pytest = "^8.3.5"
+pytest = "^8.4.0"
 
 [tool.mypy]
 python_version = "3.11"
