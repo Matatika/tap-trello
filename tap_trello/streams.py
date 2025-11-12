@@ -47,30 +47,30 @@ class BoardsStream(TrelloStream):
     def post_process(self, row, context=None):
         """Filter boards based on board_ids or board_names configuration."""
         row = super().post_process(row, context)
-        
+
         # Get filtering configuration
         board_ids = self.config.get("board_ids", [])
         board_names = self.config.get("board_names", [])
-        
+
         # If no filters are configured, return all boards
         if not board_ids and not board_names:
             return row
-        
+
         # Filter by board ID if configured
         if board_ids and row.get("id") in board_ids:
             return row
-        
+
         # Filter by board name if configured (case-insensitive)
         if board_names:
             board_name_lower = row.get("name", "").lower()
             board_names_lower = [name.lower() for name in board_names]
             if board_name_lower in board_names_lower:
                 return row
-        
+
         # If board doesn't match any filters, skip it
         if board_ids or board_names:
             return None
-        
+
         return row
 
 
