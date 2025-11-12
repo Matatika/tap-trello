@@ -1,0 +1,14 @@
+{
+  "developer_api_key": "your_developer_api_key_here",
+  "access_token": "your_access_token_here",
+  "start_date": "2024-01-01T00:00:00Z",
+  "board_ids": [
+    "board_id_1",
+    "board_id_2"
+  ],
+  "board_names": [
+    "My Project Board",
+    "Team Board"
+  ]
+}
+
