@@ -56,7 +56,7 @@ class BoardsStream(TrelloStream):
             return row
 
         # Filter by board ID if configured
-        if row.get("id") in board_ids:
+        if row["id"] in board_ids:
             return row
 
         # If board doesn't match any filters, skip it
