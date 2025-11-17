@@ -48,15 +48,6 @@ class TapTrello(Tap):
                 "If not provided, all boards will be synced."
             ),
         ),
-        th.Property(
-            "board_names",
-            th.ArrayType(th.StringType),
-            description=(
-                "Optional list of board names to sync. "
-                "If not provided, all boards will be synced. "
-                "Case-insensitive matching."
-            ),
-        ),
     ).to_dict()
 
     @override

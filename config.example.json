@@ -5,9 +5,5 @@
   "board_ids": [
     "board_id_1",
     "board_id_2"
-  ],
-  "board_names": [
-    "My Project Board",
-    "Team Board"
   ]
 }
