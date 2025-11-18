@@ -28,6 +28,20 @@ Tap settings:
 Optional:
 
 - `start_date` - The date to sync Actions and Cards from. Format: `2010-01-01T00:00:00Z`
+- `board_ids` - An array of board IDs to sync. If not provided, all boards will be synced. Example: `["5f8e5e1e1e1e1e1e1e1e1e1e", "6a9f6f2f2f2f2f2f2f2f2f2f"]`
+
+#### Example Configuration with Board Filtering
+
+See `config.example.json` for a complete example configuration including the board filtering option:
+
+```json
+{
+  "developer_api_key": "your_developer_api_key_here",
+  "access_token": "your_access_token_here",
+  "start_date": "2024-01-01T00:00:00Z",
+  "board_ids": ["board_id_1", "board_id_2"]
+}
+```
 
 You can find out how to get these settings in the next section: Source Authentication and Authorization.
 

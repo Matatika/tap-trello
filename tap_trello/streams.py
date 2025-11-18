@@ -43,6 +43,25 @@ class BoardsStream(TrelloStream):
     def get_child_context(self, record, context):
         return {"idBoard": record["id"]}
 
+    @override
+    def post_process(self, row, context=None):
+        """Filter boards based on board_ids configuration."""
+        row = super().post_process(row, context)
+
+        # Get filtering configuration
+        board_ids = self.config.get("board_ids", [])
+
+        # If no filters are configured, return all boards
+        if not board_ids:
+            return row
+
+        # Filter by board ID if configured
+        if row["id"] in board_ids:
+            return row
+
+        # If board doesn't match any filters, skip it
+        return None
+
 
 class ActionsStream(TrelloStream):
     """Define actions stream."""
