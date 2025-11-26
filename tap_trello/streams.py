@@ -51,17 +51,8 @@ class BoardsStream(TrelloStream):
         # Get filtering configuration
         board_ids = self.config.get("board_ids", [])
 
-        # If no filters are configured, return all boards
-        if not board_ids:
-            return row
-
-        # Filter by board ID if configured
-        if row["id"] in board_ids:
-            return row
-
-        # If board doesn't match any filters, skip it
-        return None
-
+        # filter by board IDs if configured, or else return all boards
+        return row if not board_ids or row["id"] in board_ids else None
 
 class ActionsStream(TrelloStream):
     """Define actions stream."""
