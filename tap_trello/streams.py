@@ -54,6 +54,7 @@ class BoardsStream(TrelloStream):
         # filter by board IDs if configured, or else return all boards
         return row if not board_ids or row["id"] in board_ids else None
 
+
 class ActionsStream(TrelloStream):
     """Define actions stream."""
 
