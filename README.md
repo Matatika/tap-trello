@@ -32,17 +32,17 @@ Optional:
 
 #### Example Configuration with Board Filtering
 
-See `config.example.json` for a complete example configuration including the board filtering option:
-
 ```json
 {
   "developer_api_key": "your_developer_api_key_here",
   "access_token": "your_access_token_here",
   "start_date": "2024-01-01T00:00:00Z",
-  "board_ids": ["board_id_1", "board_id_2"] #note: you can get boardID from trello url or run this command curl "https://api.trello.com/1/members/me/boards?key=YOUR_KEY&token=YOUR_TOKEN"
+  "board_ids": ["board_id_1", "board_id_2"] 
 
 }
 ```
+
+note: you can get boardID from trello url or run this command  ``` curl "https://api.trello.com/1/members/me/boards?key=YOUR_KEY&token=YOUR_TOKEN"" ```
 
 You can find out how to get these settings in the next section: Source Authentication and Authorization.
 
