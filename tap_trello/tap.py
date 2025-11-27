@@ -40,6 +40,14 @@ class TapTrello(Tap):
             th.DateTimeType,
             description="Date to start syncing actions and cards data from",
         ),
+        th.Property(
+            "board_ids",
+            th.ArrayType(th.StringType),
+            description=(
+                "Optional list of board IDs to sync. "
+                "If not provided, all boards will be synced."
+            ),
+        ),
     ).to_dict()
 
     @override
