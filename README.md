@@ -42,7 +42,9 @@ Optional:
 }
 ```
 
-note: you can get boardID from trello url or run this command  ``` curl "https://api.trello.com/1/members/me/boards?key=YOUR_KEY&token=YOUR_TOKEN"" ```
+note: Get the board ID from the Trello (board) URL and add .json at the end of the URL in your browser 
+
+or run this command  ``` curl "https://api.trello.com/1/members/me/boards?key=YOUR_KEY&token=YOUR_TOKEN"" ```
 
 You can find out how to get these settings in the next section: Source Authentication and Authorization.
 
