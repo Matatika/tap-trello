@@ -28,6 +28,27 @@ Tap settings:
 Optional:
 
 - `start_date` - The date to sync Actions and Cards from. Format: `2010-01-01T00:00:00Z`
+- `board_ids` - An array of board IDs to sync. If not provided, all boards will be synced. Example: `["5f8e5e1e1e1e1e1e1e1e1e1e", "6a9f6f2f2f2f2f2f2f2f2f2f"]`
+
+#### Example Configuration with Board Filtering
+
+```json
+{
+  "developer_api_key": "your_developer_api_key_here",
+  "access_token": "your_access_token_here",
+  "start_date": "2024-01-01T00:00:00Z",
+  "board_ids": ["board_id_1", "board_id_2"]
+
+}
+```
+
+> [!NOTE]
+> You can get the board ID from the Trello (board) URL in your browser by adding `.json` at the end and copying the `id` value.
+>
+> Alternatively, you can run this command:
+> ```
+> curl "https://api.trello.com/1/members/me/boards?key=$TRELLO_DEVELOPER_API_KEY&token=$TRELLO_ACCESS_TOKEN"
+> ```
 
 You can find out how to get these settings in the next section: Source Authentication and Authorization.
 
