@@ -1,4 +1,7 @@
-"""REST client handling, including TrelloStream base class."""
+"""REST client handling, including TrelloStream base class.
+
+Copyright (c) 2026 Meltano.
+"""
 
 from functools import cached_property
 

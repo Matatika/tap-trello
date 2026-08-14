@@ -1,4 +1,7 @@
-"""Trello tap class."""
+"""Trello tap class.
+
+Copyright (c) 2026 Meltano.
+"""
 
 from singer_sdk import Tap
 from singer_sdk import typing as th

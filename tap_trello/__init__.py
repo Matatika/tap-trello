@@ -1,1 +1,4 @@
-"""Tap for Trello."""
+"""Tap for Trello.
+
+Copyright (c) 2026 Meltano.
+"""
