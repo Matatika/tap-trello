@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Meltano.
+
 """Trello Authentication."""
 
 from singer_sdk.authenticators import APIAuthenticatorBase, SingletonMeta
