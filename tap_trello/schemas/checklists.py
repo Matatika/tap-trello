@@ -1,7 +1,4 @@
-"""Schema definitions for checklists objects.
-
-Copyright (c) 2026 Meltano.
-"""
+"""Schema definitions for checklists objects."""
 
 from singer_sdk import typing as th
 

@@ -1,7 +1,4 @@
-"""Trello entry point.
-
-Copyright (c) 2026 Meltano.
-"""
+"""Trello entry point."""
 
 from __future__ import annotations
 

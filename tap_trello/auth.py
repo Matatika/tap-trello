@@ -1,7 +1,4 @@
-"""Trello Authentication.
-
-Copyright (c) 2026 Meltano.
-"""
+"""Trello Authentication."""
 
 from singer_sdk.authenticators import APIAuthenticatorBase, SingletonMeta
 from typing_extensions import override

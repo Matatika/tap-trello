@@ -1,7 +1,4 @@
-"""Stream type classes for tap-trello.
-
-Copyright (c) 2026 Meltano.
-"""
+"""Stream type classes for tap-trello."""
 
 from singer_sdk import typing as th
 from singer_sdk.streams.core import REPLICATION_INCREMENTAL
