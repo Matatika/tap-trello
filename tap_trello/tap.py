@@ -46,8 +46,7 @@ class TapTrello(Tap):
             "board_ids",
             th.ArrayType(th.StringType),
             description=(
-                "Optional list of board IDs to sync. "
-                "If not provided, all boards will be synced."
+                "Optional list of board IDs to sync. If not provided, all boards will be synced."
             ),
         ),
     ).to_dict()

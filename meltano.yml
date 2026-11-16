@@ -1,7 +1,7 @@
-version: 1
 send_anonymous_usage_stats: true
 project_id: tap-trello
 default_environment: test
+requires_meltano: ">=4.0"
 environments:
 - name: test
 plugins:
@@ -13,6 +13,9 @@ plugins:
     - state
     - catalog
     - discover
+    - about
+    - stream-maps
+    - structured-logging
     settings:
     - name: developer_api_key
       kind: password
