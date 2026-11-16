@@ -18,6 +18,7 @@ class IdMemberStream(TrelloStream):
 
     name = "stream_trello_id_member"
     path = "/members/me"
+    records_jsonpath = "$"
     primary_keys = ("id",)
     schema = th.PropertiesList(
         th.Property(
