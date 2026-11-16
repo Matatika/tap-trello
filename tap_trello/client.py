@@ -26,7 +26,7 @@ class TrelloStream(RESTStream):
 
     @override
     def get_url_params(self, context, next_page_token):
-        params = super().get_url_params(context, next_page_token)
+        params: dict = super().get_url_params(context, next_page_token)  # ty: ignore[invalid-assignment]
         params["limit"] = self.limit
 
         if "start_date" in self.config:
