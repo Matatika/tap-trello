@@ -54,7 +54,7 @@ class BoardsStream(TrelloStream):
         board_ids = self.config.get("board_ids", [])
 
         # filter by board IDs if configured, or else return all boards
-        return row if not board_ids or row["id"] in board_ids else None
+        return row if not board_ids or row["id"] in board_ids else None  # ty: ignore[not-subscriptable]
 
 
 class ActionsStream(TrelloStream):
@@ -124,6 +124,6 @@ class MembersStream(TrelloStream):
     @override
     def post_process(self, row, context=None):
         row = super().post_process(row, context)
-        row["idBoard"] = context["idBoard"]
+        row["idBoard"] = context["idBoard"]  # ty: ignore[invalid-assignment, not-subscriptable]
 
         return row

@@ -6,7 +6,7 @@ from singer_sdk.testing import get_tap_test_class
 
 from tap_trello.tap import TapTrello
 
-SAMPLE_CONFIG = {}
+SAMPLE_CONFIG: dict[str, object] = {}
 
 
 # Run standard built-in tap tests from the SDK:
